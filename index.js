@@ -2,10 +2,12 @@ console.log('works!');
 
 
 function computerPlay() {
-  return 'Rock';
+  const options = ['Rock', 'Paper', 'Scissors'];
+  return options[ Math.floor(Math.random()*3)];
 }
 
 function playRound(playerSelection, computerSelection) {
+  console.log(computerSelection);
   return 'playing!';
 }
 
