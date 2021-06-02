@@ -1,6 +1,6 @@
 // console.log('works!');
 // result = window.prompt(message, default);
-const numberOfRounds = 5;
+const NUMBER_OF_ROUNDS = 5;
 
 function computerPlay() {
   const options = ['rock', 'paper', 'scissors'];
@@ -61,7 +61,8 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   let playerPoints = 0;
   let computerPoints = 0;
-  let validRounds = 5;
+  let validRounds = NUMBER_OF_ROUNDS;
+
   while(validRounds > 0) {
     let point = playRound(
       window.prompt("input: rock, paper or scissors ") ,computerPlay());
@@ -69,7 +70,12 @@ function game() {
     if(point == 0) computerPoints++;
     validRounds--;
   }
+  console.log('END OF GAME');
   if(playerPoints == computerPoints ) return console.log('Tie game');
-  playerPoints > computerPoints? console.log('You win'): console.log('You loose');
+  if(playerPoints > computerPoints) {
+    return console.log('You win');
+  } else {
+    return console.log('You loose');
+  }
 }
 game();
