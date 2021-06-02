@@ -1,5 +1,6 @@
 // console.log('works!');
 // result = window.prompt(message, default);
+const numberOfRounds = 5;
 
 function computerPlay() {
   const options = ['rock', 'paper', 'scissors'];
@@ -11,31 +12,64 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
 
   if(playerSelection === 'rock') {
-    if(computerSelection === 'paper')
-      return `You loose, ${computerSelection} beats ${playerSelection}`;
-    else if(computerSelection === 'rock')
-      return `Tie round, ${computerSelection} equals ${playerSelection}`;
-    else
-      return `You win, ${playerSelection} beats ${computerSelection}`;
+    if(computerSelection === 'paper') {
+      console.log(`You loose, ${computerSelection} beats ${playerSelection}`);
+      return 0;
+    }
+    else if(computerSelection === 'rock') {
+      console.log(`Tie round, ${computerSelection} equals ${playerSelection}`);
+      return;
+    }
+    else {
+      console.log(`You win, ${playerSelection} beats ${computerSelection}`);
+      return 1;
+    }
   } else if(playerSelection === 'paper') {
-    if(computerSelection === 'scissors')
-      return `You loose, ${computerSelection} beats ${playerSelection}`;
-    else if(computerSelection === 'paper')
-      return `Tie round, ${computerSelection} equals ${playerSelection}`;
-    else
-      return `You win, ${playerSelection} beats ${computerSelection}`;
+    if(computerSelection === 'scissors') {
+      console.log(`You loose, ${computerSelection} beats ${playerSelection}`);
+      return 0;
+    }
+    else if(computerSelection === 'paper') {
+      console.log(`Tie round, ${computerSelection} equals ${playerSelection}`);
+      return;
+    }
+    else {
+      console.log(`You win, ${playerSelection} beats ${computerSelection}`);
+      return 1;
+    }
   } else if(playerSelection === 'scissors') {
-    if(computerSelection === 'rock')
-      return `You loose, ${computerSelection} beats ${playerSelection}`;
-    else if(computerSelection === 'scissors')
-      return `Tie round, ${computerSelection} equals ${playerSelection}`;
-    else
-      return `You win, ${playerSelection} beats ${computerSelection}`;
+    if(computerSelection === 'rock') {
+      console.log(`You loose, ${computerSelection} beats ${playerSelection}`);
+      return 0;
+    }
+    else if(computerSelection === 'scissors') {
+      console.log(`Tie round, ${computerSelection} equals ${playerSelection}`);
+      return;
+    }
+    else {
+      console.log(`You win, ${playerSelection} beats ${computerSelection}`);
+      return 1;
+    }
   } else {
     return 'Wrong input!';
   }
 }
 
-const playerSelection = window.prompt("input: rock, paper or scissors ");
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+// const playerSelection = window.prompt("input: rock, paper or scissors ");
+// const computerSelection = computerPlay();
+// console.log(playRound(playerSelection, computerSelection));
+function game() {
+  let playerPoints = 0;
+  let computerPoints = 0;
+  let validRounds = 5;
+  while(validRounds > 0) {
+    let point = playRound(
+      window.prompt("input: rock, paper or scissors ") ,computerPlay());
+    if(point == 1) playerPoints++;
+    if(point == 0) computerPoints++;
+    validRounds--;
+  }
+  if(playerPoints == computerPoints ) return console.log('Tie game');
+  playerPoints > computerPoints? console.log('You win'): console.log('You loose');
+}
+game();
