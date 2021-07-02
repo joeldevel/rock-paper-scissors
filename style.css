@@ -1,0 +1,17 @@
+
+
+.display-info {
+  display: flex;
+  /* align-items: center; */
+}
+
+.human,
+.computer,
+.round-data {
+  border: 1px solid black;
+  width: 30%;
+}
+.round-data {
+  padding-top: 30px;
+  text-align: center;
+}

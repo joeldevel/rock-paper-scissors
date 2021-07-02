@@ -1,4 +1,6 @@
 // const MAX_ROUNDS = 5;
+const humanGame = document.querySelector('.human-game');
+const computerGame = document.querySelector('.computer-game');
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
@@ -28,6 +30,7 @@ function computerPlay() {
 function renderPoints(element, points) {
   element.textContent = points;
 }
+
 function endGame(winner) {
   alert(`${winner} won!`);
   humanPoints = 0;
@@ -35,11 +38,13 @@ function endGame(winner) {
   renderPoints(humanPointsDisplay, humanPoints);
   renderPoints(computerPointsDisplay, computerPoints);
 }
+
 function playRound(e) {
 
   let playerSelection = e.target.getAttribute('data-player');
   computerSelection = computerPlay();
-  // console.log(`P:${playerSelection}, C: ${computerSelection}`);
+  humanGame.textContent = playerSelection;
+  computerGame.textContent = computerSelection;
   playerSelection = playerSelection.toLowerCase();
 
   if(playerSelection === 'rock') {
